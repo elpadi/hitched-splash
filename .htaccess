@@ -1,0 +1,10 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^goodbye\.html$ - [L]
+RewriteCond %{REQUEST_URI} ^/wordpress/wp-login.php [OR]
+RewriteCond %{REQUEST_URI} ^/wordpress/wp-admin/ [OR]
+RewriteCond %{REQUEST_URI} ^/goodbye/
+RewriteRule . - [L]
+RewriteRule .* /goodbye.html [L,R=301]
+</IfModule>
